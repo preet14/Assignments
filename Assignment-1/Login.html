@@ -94,9 +94,13 @@ h2
 	background: transparent;
 	outline: none;
 	width:100%;
+	color:#fff;
 	height: 40px;
-	color: #fff;
 	font-size: 16px;
+}
+
+.loginBox option{
+	color:black;
 }
 
 .loginBox option[value=""][disabled] {
@@ -137,7 +141,7 @@ h2
 		<div class="loginBox">
 			    <img src="user.png" class="user">
 			    <h2>Log In Here</h2>
-                <form name="myForm" method="post" action="#" onsubmit="return myValidation()">
+                <form name="myForm" method="post" action="google.com" onsubmit="return myValidation()">
 				<p>User Name</p>
 				<input type="text" name="uname" placeholder="User Name">
 				<p>Password</p>
@@ -152,23 +156,26 @@ h2
 				<input type="submit" name="" value="Sign In">
 				<script type="text/javascript">
 					         function myValidation(){
- 			                   var uname = document.forms["myForm"]["uname"].value;
- 					           var pwd = document.forms["myForm"]["pass"].value;
- 			                   var stat = document.forms["myForm"]["status"].value;
+ 			                   var uname = document.forms["myForm"]["uname"];
+ 					           var pwd = document.forms["myForm"]["pass"];
+ 			                   var stat = document.forms["myForm"]["status"];
  			                   var flag=true;
  							   
-                               if(uname==""){
+                               if(uname.value==""){
                                	  alert("UserName cannot be empty");
+                               	  uname.style.border= 2+"px"+" solid red";
                                	  flag=false;
                                }
 
-                               if(pwd==""){
+                               if(pwd.value==""){
                                	  alert("Password cannot be empty");
+                               	  pwd.style.border= 2+"px"+" solid red";
                                	  flag=false;
                                }
 
-                               if(stat=="" || !(stat=="student" || stat=="faculty" || stat=="admin")){
+                               if(stat.value=="" || !(stat.value=="student" || stat.value=="faculty" || stat.value=="admin")){
                                	  alert("Status is Invalid");
+                               	  stat.style.border= 2+"px"+" solid red";
                                	  flag=false;
                                }
 
